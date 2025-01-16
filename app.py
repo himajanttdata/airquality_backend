@@ -12,7 +12,7 @@ def read():
 
 @app.route('/predict', methods=['POST'])
 def predict():
- print("Data is sent",data)
+    print("Data is sent",data)
     try:            
         # Extract data from the JSON request
         data = request.json
