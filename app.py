@@ -4,11 +4,16 @@ from flask_cors import CORS
 from preprocess import process_data, process_features, make_predictions
 
 app = Flask(__name__)
-CORS(app)
+CORS(app,resources={r"/*":{"origins":"*"}})
 
+
+@app.route('/',methods = ['GET'])
+def read():
+    return {"message": "we are testing" }
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    print("Data is sent",data)
     try:            
         # Extract data from the JSON request
         data = request.json
