@@ -6,7 +6,9 @@ from preprocess import process_data, process_features, make_predictions
 app = Flask(__name__)
 CORS(app,resources={r"/*":{"origins":"*"}})
  
-
+@app.route('/',methods = ['GET'])
+def read():
+    return {"message": "we are testing" }
 
 @app.route('/predict', methods=['POST'])
 def predict():
