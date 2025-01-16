@@ -4,7 +4,8 @@ from flask_cors import CORS
 from preprocess import process_data, process_features, make_predictions
 
 app = Flask(__name__)
-CORS(app)
+CORS(app,resources={r"/*":{"origins":"*"}})
+ 
 
 
 @app.route('/predict', methods=['POST'])
